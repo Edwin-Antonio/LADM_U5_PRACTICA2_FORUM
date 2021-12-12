@@ -38,11 +38,13 @@ class MainActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        //Pedimos permisos al usuario de usar su localización
         if(ActivityCompat.checkSelfPermission(this,android.Manifest.permission.ACCESS_FINE_LOCATION)==PackageManager.PERMISSION_DENIED){
             ActivityCompat.requestPermissions(this,
                 arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION),7)
-        }
+        }//permisos
 
+        //Conexión a la base de datos remota para obtener los datos
         baseRemota.collection("locations")
             .addSnapshotListener { querySnapshot, error ->
                 if (error!=null){
@@ -66,35 +68,35 @@ class MainActivity : AppCompatActivity(){
                     position.add(data)
                 }
                 txt_locations.setText(resultado)
-            }
+            }// Firebase
 
-
+        //Obtenemos del sistema el localizador GPS en tiempo real
         locacion = getSystemService(Context.LOCATION_SERVICE) as LocationManager
         var oyente = Oyente(this)
         locacion.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 01f, oyente)
-        /*btn_locations.setOnClickListener {
-            locacion = getSystemService(Context.LOCATION_SERVICE) as LocationManager
-            var oyente = Oyente(this)
-            locacion.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 01f, oyente)
-        }*/
 
+        //Boton para mostrar a los integrantes del equipo
         btn_integrantes.setOnClickListener {
             AlertDialog.Builder(this)
                 .setTitle("Integrantes del equipo")
                 .setMessage("Edwin Antonio Arellano Mata\nMaria Elena Montanez Herrera\nM Michelle Salinas Tirado\nPaul Neftaly Campos Contreras")
                 .setPositiveButton("OK"){p,q -> }
                 .show()
-        }
+        }//AlrtDialog
 
+        //Boton para cambiar de activity a busqueda por nombres
         btn_buscar.setOnClickListener {
             val intentoAbrir = Intent(this, MainActivity2::class.java)
             startActivity(intentoAbrir)
-        }
+        }//MainActivity2
+
+        //Insertamos la imagen de plaza forum
         imageForum.setImageResource(R.drawable.forum1)
     }
 }
 
 
+// Location Listener para detectar la posición geografica del usuario
 class Oyente(puntero:MainActivity) : LocationListener {
     var p = puntero
 
@@ -114,6 +116,7 @@ class Oyente(puntero:MainActivity) : LocationListener {
 
     }
 
+    //Insersion de las imagenes al activity
     fun imagenes(img : String, info : String){
         when(img){
             "Liverpool"->{

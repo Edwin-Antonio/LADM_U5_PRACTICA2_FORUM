@@ -13,6 +13,7 @@ class MainActivity2 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
 
+        //Acceso a la base de datos remota en Firbase
         baseRemota2.collection("locations")
             .addSnapshotListener { querySnapshot, error ->
                 if (error!=null){
@@ -31,18 +32,22 @@ class MainActivity2 : AppCompatActivity() {
                 }
             }
 
+        //Boton para buscar lugares por sus nombres
         btn_buscarNombres.setOnClickListener{
             for (items in datos) {
                 if(edt_buscar.text.toString().equals(items.nombre,true)){
                     informacion(edt_buscar.text.toString().toLowerCase(), items.informacion)
                 }
             }
-        }
+        }//btn_buscarNombres
+
+        //Boton para regresar al activity principal
         btn_regresarMain.setOnClickListener {
             finish()
-        }
+        }//MainActivity
     }
 
+    //Insersion de las imagenes al activity
     private fun informacion(info: String, cont : String) {
         when(info){
             "liverpool"->{
@@ -74,5 +79,5 @@ class MainActivity2 : AppCompatActivity() {
                 imageBusquedaForum.setImageResource(R.drawable.cinemexforum)
             }
         }
-    }
+    }//información
 }
