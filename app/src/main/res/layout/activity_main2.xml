@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity2"
+    android:background="@drawable/fondo23"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="15dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="15dp">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/tituloBuscar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="85dp"
+                    android:text="Buscar por Nombre"
+                    android:textColor="@color/white"
+                    android:textSize="25sp"
+                    android:textStyle="bold"/>
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="KFC - LIVERPOOL - CINEMEX - CandA"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:textColor="@color/white"/>
+            <EditText
+                android:id="@+id/edt_buscar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:hint="Buscar establecimiento por nombres"/>
+
+            <Button
+                android:id="@+id/btn_buscarNombres"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="BUSCAR"/>
+
+            <Button
+                android:id="@+id/btn_regresarMain"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Regresar"/>
+
+            <TextView
+                android:id="@+id/txt_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:textColor="@color/white"
+                />
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:background="#1D6BC8BE"
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/imageView2"
+                        android:layout_width="500px"
+                        android:layout_height="400px"/>
+
+                    <ImageView
+                        android:id="@+id/imageView3"
+                        android:layout_width="500px"
+                        android:layout_height="400px"/>
+
+                    <ImageView
+                        android:id="@+id/imageView4"
+                        android:layout_width="500px"
+                        android:layout_height="400px"/>
+
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <ImageView
+                android:id="@+id/imageBusquedaForum"
+                android:layout_width="match_parent"
+                android:layout_height="600px"
+                android:layout_marginTop="15dp"
+                />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
